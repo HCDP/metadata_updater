@@ -1,0 +1,1 @@
+raise Exception("I'm a failure!")

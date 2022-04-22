@@ -9,15 +9,14 @@ from codecs import iterdecode
 from os import getenv
 
 token = getenv("TOKEN")
-message = getenv("MSG")
-file = message["file"]
+file = getenv("MSG")
 
 #token should be passed as a default env var to container
 tapis_config = {
     "tenant_url": "https://agaveauth.its.hawaii.edu/meta/v2/data",
     "token": token,
     "retry": 3,
-    "db_write_api_url": "https://cistore.its.hawaii.edu:8443"
+    "db_write_api_url": "https://cistore.its.hawaii.edu"
 }
 prop_translations = {
     "SKN": "skn",
@@ -37,8 +36,6 @@ prop_translations = {
 nodata = "NA"
 id_field = "skn"
 station_group = "hawaii_climate_primary"
-
-file = "https://raw.githubusercontent.com/ikewai/hawaii_wx_station_mgmt_container/main/Hawaii_Master_Station_Meta.csv"
 
 tapis_handler = V2Handler(tapis_config)
 
